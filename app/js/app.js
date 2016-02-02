@@ -2,7 +2,9 @@
 
 var app = angular.module('blueSeudeApp', [
   'ngRoute',
+  'ngResource',
   'app.controllers',
+  'app.services',
 ])
 .config(['$routeProvider',
   function($routeProvider) {
