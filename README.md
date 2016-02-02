@@ -9,7 +9,7 @@
 ![Image Alt](app/img/screenshot.png)
 
 ## About
-##### Shopping simulator.
+##### Shopping simulator
 Using AngularJs/Html/Css
 
 

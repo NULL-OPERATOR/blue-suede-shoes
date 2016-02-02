@@ -3,9 +3,8 @@
 var app = angular.module('blueSeudeApp', [
   'ngRoute',
   'app.controllers',
-]);
-
-phonecatApp.config(['$routeProvider',
+])
+.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/', {

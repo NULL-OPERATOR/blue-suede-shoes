@@ -1,5 +1,6 @@
 [
   {
+    "id":0,
     "name":"Almond Toe Court Shoes, Patent Black",
     "category": "Women’s Footwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -8,6 +9,7 @@
     "quantity": 5
   },
   {
+    "id":1,
     "name":"Suede Shoes, Blue",
     "category": "Women’s Footwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -16,6 +18,7 @@
     "quantity": 4
   },
   {
+    "id":2,
     "name":"Leather Driver Saddle Loafers, Tan",
     "category": "Men’s Footwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -24,6 +27,7 @@
     "quantity": 12
   },
   {
+    "id":3,
     "name":"Flip Flops, Red",
     "category": "Men’s Footwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -33,6 +37,7 @@
     "quantity": 6
   },
   {
+    "id":4,
     "name":"Flip Flops, Blue",
     "category": "Men’s Footwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -41,6 +46,7 @@
     "quantity": 0
   },
   {
+    "id":5,
     "name":"Gold Button Cardigan, Black",
     "img":"img/Blue-Suede-Shoes.jpg",
     "category": "Women’s Casualwear",
@@ -49,6 +55,7 @@
     "quantity": 6
   },
   {
+    "id":6,
     "name":"Cotton Shorts, Medium Red",
     "category": "Women’s Casualwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -57,6 +64,7 @@
     "quantity": 5
   },
   {
+    "id":7,
     "name":"Fine Stripe Short Sleeve Shirt, Grey",
     "category": "Men’s Casualwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -65,6 +73,7 @@
     "quantity": 9
   },
   {
+    "id":8,
     "name":"Fine Stripe Short Sleeve Shirt, Green",
     "category": "Men’s Casualwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -73,6 +82,7 @@
     "quantity": 3
   },
   {
+    "id":9,
     "name":"Sharkskin Waistcoat, Charcoal",
     "category": "Men’s Formalwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -81,6 +91,7 @@
     "quantity": 2
   },
   {
+    "id":10,
     "name":"Lightweight Patch Pocket Blazer, Deer",
     "category": "Men’s Formalwear",
     "img":"img/Blue-Suede-Shoes.jpg",
@@ -89,6 +100,7 @@
     "quantity": 1
   },
   {
+    "id":11,
     "name":"Bird Print Dress, Black",
     "category": "Women’s Formalwear",
     "price": 270,
@@ -96,7 +108,8 @@
     "quantity": 10
   },
   {
-    "name":" Mid Twist Cut-Out Dress, Pink",
+    "id":12,
+    "name":"Mid Twist Cut-Out Dress, Pink",
     "category": "Women’s Formalwear",
     "img":"img/Blue-Suede-Shoes.jpg",
     "price": 540,
