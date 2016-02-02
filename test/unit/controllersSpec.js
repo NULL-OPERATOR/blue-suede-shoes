@@ -21,20 +21,20 @@ describe('appCtrl', function(){
   it('should start with an empty cart', function() {
 
   });
-  // beforeEach(function() {
-  // });
-  it('should be able to add a product to the cart', function() {
-    $httpBackend.flush();
-    var shoes = scope.items[0];
-    ctrl.addToCart(shoes);
-    expect(scope.cart).toEqual(itemsOut);
-  });
+  describe("adding to the cart", function() {
+    beforeEach(function() {
+      $httpBackend.flush();
+      var shoes = scope.items[0];
+      ctrl.addToCart(shoes);
+    });
 
-  it('should reduce the current stock of the item by 1', function() {
-    $httpBackend.flush();
-    var shoes = scope.items[0];
-    ctrl.addToCart(shoes);
-    expect(scope.items[shoes.id].quantity).toEqual(4);
+    it('should reduce the current stock of the item by 1', function() {
+      var shoes = scope.items[0];
+      expect(scope.items[shoes.id].quantity).toEqual(4);
+    });
+    it('should be able to add a product to the cart', function() {
+      expect(scope.cart).toEqual(itemsOut);
+    });
   });
 
 
