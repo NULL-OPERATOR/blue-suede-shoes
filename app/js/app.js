@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('phonecatApp', [
+var app = angular.module('blueSeudeApp', [
   'ngRoute',
   'app.controllers',
 ]);
