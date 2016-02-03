@@ -45,7 +45,6 @@ describe('blueSeudeApp controllers', function(){
       });
 
       it('should reduce the current stock of the item by 1', function() {
-        // var shoes = ctrl.items[0];
         expect(ctrl.items[shoes.id].quantity).toEqualData(4);
       });
 
@@ -53,9 +52,20 @@ describe('blueSeudeApp controllers', function(){
         expect(ctrl.cart).toEqualData(basket);
       });
 
+      it('should be able to add multiples of the same product', function() {
+        ctrl.addItem(shoes)
+        expect(ctrl.cart[0].quantity).toEqualData(2);
+      });
+
       it('can remove a product from the cart', function() {
         ctrl.removeItem(shoes)
         expect(ctrl.cart).toEqualData([]);
+      });
+
+      it('can remove one from a multiple order', function() {
+        ctrl.addItem(shoes)
+        ctrl.removeItem(shoes)
+        expect(ctrl.cart).toEqualData(basket);
       });
     });
 

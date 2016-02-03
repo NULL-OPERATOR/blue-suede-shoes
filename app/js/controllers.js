@@ -34,17 +34,12 @@ angular.module('app.controllers', [])
     }
   };
 
-  this.cleanCart = function() {
+  this.removeCartItem = function(index) {
     for (var i = this.cart.length - 1; i >= 0; i--) {
-      if (this.cart[i] === undefined) {
+      if (i === index) {
         this.cart.splice(i, 1);
       }
     }
-  }
-
-  this.removeCartItem = function(index) {
-    delete this.cart[index]
-    this.cleanCart()
   };
 
   this.removeItem = function(item) {
