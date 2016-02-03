@@ -14,6 +14,14 @@ angular.module('app.controllers', [])
     this.items[item.id].quantity ++;
   };
 
+  this.decreaseCartStock = function(index) {
+    this.cart[index].quantity --;
+  }
+
+  this.removeCartItem = function(index) {
+    this.cart.splice(index, 1);
+  }
+
   this.checkCart = function(item) {
     for(var i = 0; i < this.cart.length; i ++) {
       if(this.cart[i].name === item.name) {
@@ -36,21 +44,13 @@ angular.module('app.controllers', [])
     }
   };
 
-  this.removeCartItem = function(index) {
-    for (var i = this.cart.length - 1; i >= 0; i--) {
-      if (i === index) {
-        this.cart.splice(i, 1);
-      }
-    }
-  };
-
   this.removeItem = function(item) {
     var index = this.checkCart(item);
     this.increaseStock(item);
     if (this.cart[index].quantity === 1) {
       this.removeCartItem(index);
     } else {
-      this.cart[index].quantity --;
+      this.decreaseCartStock(index);
     }
   }
 
