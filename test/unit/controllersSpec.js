@@ -17,9 +17,9 @@ describe('blueSeudeApp controllers', function(){
 
   describe('appCtrl', function() {
     var ctrl, $httpBackend;
-    var itemsIn = [{ id:0, name:"shoes", discount: 0, quantity: 5 }];
-    var itemsOut = [{ id:0, name:"shoes", discount: 0, quantity: 4 }];
-    var basket = [{ "name":"shoes", "quantity":1 }];
+    var itemsIn = [{ id:0, name:"shoes", "price":2, discount: 0, quantity: 5 }];
+    var itemsOut = [{ id:0, name:"shoes", "price":2, discount: 0, quantity: 4 }];
+    var basket = [{ "name":"shoes", "price":2, "quantity":1 }];
     var shoes = itemsIn[0];
 
     beforeEach(inject(function(_$httpBackend_, $controller) {
@@ -66,6 +66,17 @@ describe('blueSeudeApp controllers', function(){
         ctrl.addItem(shoes)
         ctrl.removeItem(shoes)
         expect(ctrl.cart).toEqualData(basket);
+      });
+    });
+    describe("finding the total", function() {
+      beforeEach(function() {
+        $httpBackend.flush();
+        ctrl.addItem(shoes);
+        ctrl.addItem(shoes);
+      });
+
+      it('should calculate the total', function() {
+        expect(ctrl.findTotal()).toEqualData(4);
       });
     });
 
