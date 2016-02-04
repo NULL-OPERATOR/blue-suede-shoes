@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('blueSeudeApp', [
+var app = angular.module('blueSuedeApp', [
   'ngRoute',
   'ngResource',
   'app.controllers',
@@ -10,9 +10,10 @@ var app = angular.module('blueSeudeApp', [
   function($routeProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: 'partials/cart.html',
-        controller: 'cartCtrl'
+        templateUrl: 'partials/home.html',
+        controller: 'appCtrl'
       }).
+
       otherwise({
         redirectTo: '/'
       });

@@ -1,65 +1,76 @@
 'use strict';
 angular.module('app.controllers', [])
 
-.controller('appCtrl', ['shopItems', "$filter", function(shopItems, $filter) {
+.controller('appCtrl', ['shopItems', '$scope', function(shopItems, $scope) {
   this.cart = [];
+  this.categories = ["All","Women’s Footwear","Men’s Footwear","Women’s Casualwear","Men’s Casualwear","Men’s Formalwear","Women’s Formalwear"]
   this.items = shopItems.query();
-  // this.total = 0;
+  this.subTotal = 0;
+  this.total = 0;
+  this.error = false;
 
-  this.reduceStock = function(item) {
-    this.items[item.id].quantity --;
+
+  this.addItem = function(item) {
+    this._addToCart(item)
+    item.quantity --;
+    this._updateTotal();
   };
 
-  this.increaseStock = function(item) {
-    this.items[item.id].quantity ++;
+  this.removeItem = function(item) {
+    this._removeFromCart(item);
+    this.items[this._itemsIndex(item)].quantity ++;
+    this._updateTotal();
+  }
+
+
+  this.showError = function(input){
+    $scope.errorFade = false;
+    this.error = true;
+    this.errorMessage = input;
+    $timeout(function(){
+      $scope.errorFade = true;
+    }, 2500);
   };
 
-  this.decreaseCartStock = function(index) {
-    this.cart[index].quantity --;
-  }
-
-  this.removeCartItem = function(index) {
-    this.cart.splice(index, 1);
-  }
-
-  this.checkCart = function(item) {
+  this._cartIndex = function(item) {
     for(var i = 0; i < this.cart.length; i ++) {
       if(this.cart[i].name === item.name) {
         return i;
       }
     }
   };
+  this._itemsIndex = function(item) {
+    for(var i = 0; i < this.items.length; i ++) {
+      if(this.items[i].name === item.name) {
+        return i;
+      }
+    }
+  };
 
-  this.addItem = function(item) {
-    var index = this.checkCart(item)
-    this.reduceStock(item);
+  this._addToCart = function(item) {
+    var index = this._cartIndex(item)
     if (index === undefined) {
-      this.cart.push({
-        "name": item.name,
-        "price": item.price,
-        "quantity": 1
-      });
+      this.cart.push({"name":item.name, "price":item.price, "quantity": 1});
     } else {
       this.cart[index].quantity ++;
     }
   };
 
-  this.removeItem = function(item) {
-    var index = this.checkCart(item);
-    this.increaseStock(item);
+  this._removeFromCart = function(item) {
+    var index = this.cart.indexOf(item);
     if (this.cart[index].quantity === 1) {
-      this.removeCartItem(index);
+      this.cart.splice(index, 1);
     } else {
-      this.decreaseCartStock(index);
+      this.cart[index].quantity --;
     }
-  }
+  };
 
-  this.findTotal = function() {
+  this._updateTotal = function() {
     var total = 0
     for (var i = this.cart.length -1; i >=0; i--) {
       total += this.cart[i].price * this.cart[i].quantity;
     }
-    return total;
+    this.total = total;
   }
 
 }]);

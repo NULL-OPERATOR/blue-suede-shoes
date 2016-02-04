@@ -1,0 +1,61 @@
+<div ng-controller="appCtrl as ctrl">
+  carthello
+  <div class="row">
+    <section class="side-menu fluid-container">
+      <div class="cart col-md-3">
+        <div>
+          <h4 class="heading"></h4>
+          <input placeholder="Search" ng-model="search"/>
+          <ul class="search-list list-group">
+            <li class="list-group-item" ng-repeat="item in ctrl.categories">
+              <!-- <a ng-bind="item" class="btn" ng-submit="item"></a> -->
+              <input class="btn" type="checkbox" ng-model="radioo" value="{{item}}">
+                {{item}}
+                {{radio}}
+              </input>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="heading">Cart</h4>
+          <ul class="cart-list list-group">
+            <li class="list-group-item" ng-repeat="item in ctrl.cart">
+              <p ng-bind="item.name"></p>
+              <p ng-bind="item.price | currency:'£'"></p>
+              x
+              <p ng-bind="item.quantity"></p>
+              <button class="btn btn-info btn-block" ng-click=ctrl.removeItem(item)> - </button>
+            </li>
+          </ul>
+          <input type="text" placeholder="Add Code" ng-model="code">
+          <button class="btn btn-default btn-block" type="button" ng-click=addVoucher(code)>Add Voucher</button>
+          <p ng-bind="ctrl.subTotal | currency:'£'"></p>
+          <p ng-bind="ctrl.total | currency:'£'"></p>
+          <div ng-show="ctrl.error" ng-class="{fade:errorFade}" class="alert alert-danger">
+            <strong>Error:</strong> {{ctrl.errorMessage}}
+          </div>
+          <a href="#" class="btn btn-default btn-block">Checkout</a>
+        </div>
+    </section>
+    <section class="shop-items">
+      <ul class=" list-group col-md-7 col-md-offset-1">
+        <li class="list-group-item col-md-3" ng-repeat="item in ctrl.items | filter:radioo | filter:search">
+          <h5 ng-bind="item.name"></h5>
+          <p ng-bind="item.category"></p>
+          <img ng-src={{item.img}} />
+          <p ng-bind="item.price | currency:'£'" class=""></p>
+          <a ng-show="item.quantity > 0" class="btn btn-success" ng-click="ctrl.addItem(item)"> Add to cart</a>
+          <a ng-show="item.quantity > 0" class="btn btn-success" disabled=true>Quantity: {{item.quantity}}</a>
+          <a ng-show="item.quantity === 0" class="btn btn-danger" disabled=true> Out of Stock</a>
+        </li>
+      </ul>
+    </section>
+</div>
+
+
+
+
+
+
+
+</div>

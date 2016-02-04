@@ -2,7 +2,7 @@
 
 describe('shopItems', function() {
 
-  beforeEach(module('blueSeudeApp'));
+  beforeEach(module('blueSuedeApp'));
   it('check Data factory exists', inject(function(shopItems) {
       expect(shopItems).toBeDefined();
     }));

@@ -1,5 +1,5 @@
 "use strict";
-describe('blueSeudeApp controllers', function(){
+describe('blueSuedeApp controllers', function(){
 
   beforeEach(function(){
     jasmine.addMatchers({
@@ -13,20 +13,20 @@ describe('blueSeudeApp controllers', function(){
     });
   });
 
-  beforeEach(module('blueSeudeApp'));
+  beforeEach(module('blueSuedeApp'));
 
   describe('appCtrl', function() {
-    var ctrl, $httpBackend;
-    var itemsIn = [{ id:0, name:"shoes", "price":2, discount: 0, quantity: 5 }];
-    var itemsOut = [{ id:0, name:"shoes", "price":2, discount: 0, quantity: 4 }];
+    var scope, ctrl, $httpBackend;
+    var itemsIn = [{ "id":0, "name":"shoes", "price":2, "discount": 0, "quantity": 5 }];
     var basket = [{ "name":"shoes", "price":2, "quantity":1 }];
-    var shoes = itemsIn[0];
+    var shoes = itemsIn[0]
 
-    beforeEach(inject(function(_$httpBackend_, $controller) {
+
+    beforeEach(inject(function($rootScope, _$httpBackend_, $controller) {
       $httpBackend = _$httpBackend_;
-      $httpBackend.expectGET('/items.json').respond(itemsIn);
-      // ctrl = $rootctrl.$new();
-      ctrl = $controller('appCtrl');
+      $httpBackend.expectGET('items.json').respond(itemsIn);
+      scope = $rootScope.$new();
+      ctrl = $controller('appCtrl', {$scope: scope});
     }));
 
     it('should import a list of items', function() {
@@ -38,14 +38,16 @@ describe('blueSeudeApp controllers', function(){
     it('should start with an empty cart', function() {
       expect(ctrl.cart).toEqualData([]);
     });
+
     describe("adding to the cart", function() {
       beforeEach(function() {
         $httpBackend.flush();
+        var shoes = ctrl.items[0]
         ctrl.addItem(shoes);
       });
 
       it('should reduce the current stock of the item by 1', function() {
-        expect(ctrl.items[shoes.id].quantity).toEqualData(4);
+        expect(ctrl.items[0].quantity).toBe(4);
       });
 
       it('should be able to add a product to the cart', function() {
@@ -54,18 +56,20 @@ describe('blueSeudeApp controllers', function(){
 
       it('should be able to add multiples of the same product', function() {
         ctrl.addItem(shoes)
-        expect(ctrl.cart[0].quantity).toEqualData(2);
+        expect(ctrl.cart[0].quantity).toBe(2);
       });
 
       it('can remove a product from the cart', function() {
-        ctrl.removeItem(shoes)
+        var cart_shoes = ctrl.cart[0]
+        ctrl.removeItem(cart_shoes)
         expect(ctrl.cart).toEqualData([]);
       });
 
       it('can remove one from a multiple order', function() {
         ctrl.addItem(shoes)
-        ctrl.removeItem(shoes)
-        expect(ctrl.cart).toEqualData(basket);
+        var cart_shoes = ctrl.cart[0]
+        ctrl.removeItem(cart_shoes)
+        expect(ctrl.cart[0].quantity).toBe(1);
       });
     });
     describe("finding the total", function() {
@@ -76,7 +80,7 @@ describe('blueSeudeApp controllers', function(){
       });
 
       it('should calculate the total', function() {
-        expect(ctrl.findTotal()).toEqualData(4);
+        expect(ctrl.total).toEqualData(4);
       });
     });
 
