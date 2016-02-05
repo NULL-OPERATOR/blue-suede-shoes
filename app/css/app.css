@@ -1,17 +1,17 @@
-body {
-  background: #EBEFED;
-}
 *:focus {
-    outline: none;
+  outline: none;
 }
 
-.cart {
-  /*position: fixed;*/
-  width: 200px;
+body {
+  background: #EBEFED;
 }
 
 p {
   margin: 0 10px 0;
+}
+
+.cart {
+  width: 200px;
 }
 
 .cart-price {
@@ -22,7 +22,7 @@ p {
 .btn {
   border-radius: 0%;
   width: 100%;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .side-menu {

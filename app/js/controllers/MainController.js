@@ -10,6 +10,8 @@
     self.items = CartService.items;
     self.categories = CartService.categories;
     self.codesUsed = DiscountsService.codesUsed;
+    self.error = DiscountsService.error;
+
 
     self.addItem = function(item) {
       CartService.addItem(item);

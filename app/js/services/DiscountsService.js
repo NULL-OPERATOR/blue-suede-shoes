@@ -8,6 +8,7 @@
     self.codesUsed = [];
     self.total = 0;
     self.error = false;
+    self.errorMessage = ''
 
     self.addVoucher = function(code, subTotal, hasFootwear) {
       if (self.codes.includes(code)) {
@@ -30,6 +31,7 @@
       } else {
         self.total += 5;
       }
+      self.codesUsed.push(code)
     }
 
 
