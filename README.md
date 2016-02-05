@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/NULL-OPERATOR/blue-suede-shoes.svg?branch=master)](https://travis-ci.org/NULL-OPERATOR/blue-suede-shoes) [![Code Climate](https://codeclimate.com/github/NULL-OPERATOR/blue-suede-shoes/badges/gpa.svg)](https://codeclimate.com/github/NULL-OPERATOR/blue-suede-shoes) [![Coverage Status](https://coveralls.io/repos/github/NULL-OPERATOR/blue-suede-shoes/badge.svg?branch=master)](https://coveralls.io/github/NULL-OPERATOR/blue-suede-shoes?branch=master)
+<!-- [![Build Status](https://travis-ci.org/NULL-OPERATOR/blue-suede-shoes.svg?branch=master)](https://travis-ci.org/NULL-OPERATOR/blue-suede-shoes) [![Code Climate](https://codeclimate.com/github/NULL-OPERATOR/blue-suede-shoes/badges/gpa.svg)](https://codeclimate.com/github/NULL-OPERATOR/blue-suede-shoes) [![Coverage Status](https://coveralls.io/repos/github/NULL-OPERATOR/blue-suede-shoes/badge.svg?branch=master)](https://coveralls.io/github/NULL-OPERATOR/blue-suede-shoes?branch=master) -->
 
 ```
 

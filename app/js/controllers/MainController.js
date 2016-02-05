@@ -5,9 +5,11 @@
 
     self.total = 0;
     self.subTotal = 0;
+    self.buttonSearch = '';
     self.cart = CartService.cart;
     self.items = CartService.items;
     self.categories = CartService.categories;
+    self.codesUsed = DiscountsService.codesUsed;
 
     self.addItem = function(item) {
       CartService.addItem(item);
@@ -30,6 +32,14 @@
       self.total = self.subTotal - DiscountsService.total;
     }
 
+    self.searchButton = function(item) {
+      if (this.buttonSearch === item || item === 'All') {
+        this.buttonSearch = '';
+      } else {
+        this.buttonSearch = item
+      }
+    }
+
   }
   angular
     .module('app')
@@ -38,10 +48,4 @@
       'DiscountsService',
       MainCtrl
     ]);
-  // // AnotherCtrl.js
-  // function AnotherCtrl () {
-  // }
-  // angular
-  //   .module('app')
-  //   .controller('AnotherCtrl', AnotherCtrl);
 })();
