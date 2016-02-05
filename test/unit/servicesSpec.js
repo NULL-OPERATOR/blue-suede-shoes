@@ -1,9 +1,9 @@
 'use strict';
 
-describe('shopItems', function() {
+describe('ItemsService', function() {
 
-  beforeEach(module('blueSuedeApp'));
-  it('check Data factory exists', inject(function(shopItems) {
-      expect(shopItems).toBeDefined();
+  beforeEach(module('app'));
+  it('check service exists', inject(function(ItemsService) {
+      expect(ItemsService).toBeDefined();
     }));
 });
